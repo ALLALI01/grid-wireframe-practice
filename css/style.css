@@ -2,15 +2,16 @@ body {
     background-color: lightgrey;
     color: white;
     display: grid;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    font-size: 16px;
 }
 
 .grid {
     display: grid;
     grid-template-columns: 1fr;
-    height: 75vh;
-    width: 75vw;
+    width: 70vw;
+    height: 70vh;
     gap: 10px;
     justify-content: center;
     align-items: center;
@@ -19,8 +20,8 @@ body {
 h1, aside, footer {
     border-radius: 10px;
     text-align: center;
-    font-size: 200%;
     padding: 10px;
+    font-size: 2rem;
 }
 
 h1 {
@@ -28,31 +29,31 @@ h1 {
     font-weight: normal;
 }
 
+.container {
+    display: grid;
+    gap: 10px;
+}
+
 section {
     background-color: #24B676;
+    border-radius: 10px;
     display: grid;
     gap: 20px;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr;
-    justify-content: space-evenly;
-    align-items: center;
-    border-radius: 10px;
+    grid-template-rows: repeat(3, 1fr);
     padding: 20px;
+    align-items: center;
 }
 
 article {
     background-color: #E4195B;
     border-radius: 10px;
-    width: 70vw;
-    height: 10vh;
     padding: 20px;
     text-align: center;
-    font-size: 150%;
+    font-size: 1.5rem;
 }
 
 footer {
     background-color: #E06924;
-    font-size: 175%;
 }
 
 .blue {
@@ -61,4 +62,45 @@ footer {
 
 .light-blue {
     background-color: #25A4B5;
+}
+
+@media screen and (min-width: 769px) {
+
+    .grid {
+        width: 90vw;
+        height: 60vh;
+    }
+
+    .container {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    article {
+        grid-row-start: 3;
+    }
+
+    aside {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section::before {
+        content: "ARTICLE";
+        display: block;
+        text-align: center;
+        font-size: 2rem;
+        color: white;
+        grid-row-start: 2;
+        grid-column-start: 2;
+    }
+
+    h1, footer {
+        padding: 20px;
+    }
+
 }
